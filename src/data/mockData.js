@@ -1,7 +1,296 @@
 import { tokens } from "../theme";
+export const mockDataProducts = [
+  {
+    date: "2024-06-10",
+    id: "P001",
+    name: "Organic Apples",
+    category: "Fruits",
+    price: 3.99,
+    store: "Super U",
+    availability: "In Stock"
+  },
+  {
+    date: "2024-06-11",
+   id: "P002",
+    name: "Whole Wheat Bread",
+    category: "Bakery",
+    price: 2.49,
+    store: "Winners",
+    availability: "In Stock"
+  },
+  {
+    date: "2024-06-12",
+    id: "P003",
+    name: "Almond Milk",
+    category: "Dairy",
+    price: 4.59,
+    store: "Shoprite",
+    availability: "Out of Stock"
+  },
+  {
+    date: "2024-06-13",
+    id: "P004",
+    name: "Chicken Breast",
+    category: "Meat",
+    price: 7.99,
+    store: "Intermart",
+    availability: "In Stock"
+  },
+  {
+    date: "2024-06-14",
+    id: "P005",
+    name: "Broccoli",
+    category: "Vegetables",
+    price: 2.29,
+    store: "Super U",
+    availability: "In Stock"
+  },
+  {
+    date: "2024-06-15",
+   id: "P006",
+    name: "Orange Juice",
+    category: "Beverages",
+    price: 3.19,
+    store: "Winners",
+    availability: "In Stock"
+  },
+  {
+    date: "2024-06-16",
+    id: "P007",
+    name: "Granola Bars",
+    category: "Snacks",
+    price: 5.49,
+    store: "Shoprite",
+    availability: "Out of Stock"
+  },
+  {
+    date: "2024-06-17",
+   id: "P008",
+    name: "Salmon Fillet",
+    category: "Seafood",
+    price: 12.99,
+    store: "Intermart",
+    availability: "In Stock"
+  },
+  {
+    date: "2024-06-18",
+    id: "P009",
+    name: "Greek Yogurt",
+    category: "Dairy",
+    price: 1.99,
+    store: "Super U",
+    availability: "In Stock"
+  },
+  {
+    date: "2024-06-19",
+    id: "P010",
+    name: "Tomato Sauce",
+    category: "Pantry",
+    price: 2.79,
+    store: "Winners",
+    availability: "In Stock"
+  },
+  {
+    date: "2024-06-20",
+   id: "P011",
+    name: "Brown Rice",
+    category: "Pantry",
+    price: 4.39,
+    store: "Shoprite",
+    availability: "In Stock"
+  },
+  {
+    date: "2024-06-21",
+   id: "P012",
+    name: "Butter",
+    category: "Dairy",
+    price: 3.69,
+    store: "Intermart",
+    availability: "Out of Stock"
+  }
+];
+export const mockDataUsers = [
+  {
+    id: 1,
+    date_joined: "2024-01-15",
+    username: "john_doe",
+    full_name: "John Doe",
+    email: "john.doe@example.com",
+    mobile_number: "555-1234",
+    telephone_number: "555-5678",
+    address: "123 Main St, Port Louis, Mauritius"
+  },
+  {
+    id: 2,
+    date_joined: "2024-02-20",
+    username: "jane_smith",
+    full_name: "Jane Smith",
+    email: "jane.smith@example.com",
+    mobile_number: "555-2345",
+    telephone_number: "555-6789",
+    address: "456 Elm St, Curepipe, Mauritius"
+  },
+  {
+    id: 3,
+    date_joined: "2024-03-12",
+    username: "sam_wilson",
+    full_name: "Sam Wilson",
+    email: "sam.wilson@example.com",
+    mobile_number: "555-3456",
+    telephone_number: "555-7890",
+    address: "789 Pine St, Quatre Bornes, Mauritius"
+  },
+  {
+    id: 4,
+    date_joined: "2024-04-25",
+    username: "lisa_brown",
+    full_name: "Lisa Brown",
+    email: "lisa.brown@example.com",
+    mobile_number: "555-4567",
+    telephone_number: "555-8901",
+    address: "321 Oak St, Vacoas, Mauritius"
+  },
+  {
+    id: 5,
+    date_joined: "2024-05-30",
+    username: "mike_jones",
+    full_name: "Mike Jones",
+    email: "mike.jones@example.com",
+    mobile_number: "555-5678",
+    telephone_number: "555-9012",
+    address: "654 Maple St, Flic en Flac, Mauritius"
+  }
+];
+export const mockDataStores = [
+  {
+    id: 1,
+    date_created: "2024-01-14",
+    store_id: "#1752",
+    store_name: "King Savers Ltd.",
+    manager_in_charge: "Navindra SOOREN",
+    telephone_number: "631 0713",
+    address: "Jaynarian Road, Mahébourg",
+    email_address: "kings1@gmail.com"
+  },
+  {
+    id: 2,
+    date_created: "2024-01-14",
+    store_id: "526#",
+    store_name: "Chan Supermarket",
+    manager_in_charge: "Malee NIYATCH",
+    telephone_number: "212 1315",
+    address: "44 Mere Barthelemy Str, Port Louis",
+    email_address: "chan@outlook.com"
+  },
+  {
+    id: 3,
+    date_created: "2024-05-15",
+    store_id: "6329#",
+    store_name: "Royal Superstore Ltd.",
+    manager_in_charge: "Ava LEE BOO",
+    telephone_number: "212 3399",
+    address: "8 Corderie Street, Port Louis",
+    email_address: "RoyalS@hotmail.com"
+  },
+  {
+    id: 4,
+    date_created: "2024-05-15",
+    store_id: "#2563",
+    store_name: "Panagora Marketing Co Ltd. - Vacoas-Phoenix",
+    manager_in_charge: "Cani BRONK",
+    telephone_number: "+230 601 8300",
+    address: "Pont Fer, Phoenix 73 544, Vacoas-Phoenix",
+    email_address: "PF@gmail.com"
+  },
+  {
+    id: 5,
+    date_created: "2024-03-13",
+    store_id: "#9632",
+    store_name: "Jumbo Vacoas-Phoenix",
+    manager_in_charge: "Lenny WRIGHT",
+    telephone_number: "+230 696 4097",
+    address: "Avenue Sivananda, Phoenix, Vacoas-Phoenix",
+    email_address: "AVSPVP@gmail.com"
+  },
+  {
+    id: 6,
+    date_created: "2024-05-16",
+    store_id: "#2145",
+    store_name: "Sik Yuen Supermarket",
+    manager_in_charge: "Bavish WRATH",
+    telephone_number: "+230 676 2429",
+    address: "6 Pope Hennessy Street, Curepipe",
+    email_address: "SikYuen@outlook.com"
+  },
+  {
+    id: 7,
+    date_created: "2024-02-20",
+    store_id: "2589#",
+    store_name: "Monoprix",
+    manager_in_charge: "Rina SOORYA",
+    telephone_number: "(+230) 6761863",
+    address: "195 Route Royale, Curepipe",
+    email_address: "Mono@hotmail.com"
+  },
+  {
+    id: 8,
+    date_created: "2024-04-04",
+    store_id: "#5641",
+    store_name: "Shoprite Hyper",
+    manager_in_charge: "Avinash DUBAI",
+    telephone_number: "(230) 464 3000",
+    address: "Trianon Shopping Park, Trianon, Quatre Bornes",
+    email_address: "shoprite@gmail.com"
+  }
+];
+export const mockDataCategories = [
+  {
+    id: 1,
+    date_added: "2024-01-14",
+    category_id: "#001",
+    category_name: "Fruits",
+    item_image: "im1.jpg",
+  },
+  {
+    id: 2,
+    date_added: "2024-02-18",
+    category_id: "#002",
+    category_name: "Vegetables",
+    item_image: "im1.jpg",
+  },
+  {
+    id: 3,
+    date_added: "2024-03-25",
+    category_id: "#003",
+    category_name: "Dairy",
+    item_image: "im1.jpg",
+  },
+  {
+    id: 4,
+    date_added: "2024-04-10",
+    category_id: "#004",
+    category_name: "Bakery",
+    item_image: "im1.jpg",
+  },
+  {
+    id: 5,
+    date_added: "2024-05-01",
+    category_id: "#005",
+    category_name: "Beverages",
+    item_image: "im1.jpg",
+  },
+  {
+    id: 6,
+    date_added: "2024-06-05",
+    category_id: "#006",
+    category_name: "Snacks",
+    item_image: "im1.jpg",
+  },
+];
 
 export const mockDataTeam = [
   {
+    date:"14/04/2024",
     id: 1,
     name: "Jon Snow",
     email: "jonsnow@gmail.com",
@@ -10,6 +299,7 @@ export const mockDataTeam = [
     access: "admin",
   },
   {
+    date:"14/04/2024",
     id: 2,
     name: "Cersei Lannister",
     email: "cerseilannister@gmail.com",
@@ -17,7 +307,8 @@ export const mockDataTeam = [
     phone: "(421)314-2288",
     access: "manager",
   },
-  {
+  {   
+    date:"14/04/2024",
     id: 3,
     name: "Jaime Lannister",
     email: "jaimelannister@gmail.com",
@@ -26,6 +317,7 @@ export const mockDataTeam = [
     access: "user",
   },
   {
+    date:"14/04/2024",
     id: 4,
     name: "Anya Stark",
     email: "anyastark@gmail.com",
@@ -33,7 +325,8 @@ export const mockDataTeam = [
     phone: "(921)425-6742",
     access: "admin",
   },
-  {
+  {    
+    date:"14/04/2024",
     id: 5,
     name: "Daenerys Targaryen",
     email: "daenerystargaryen@gmail.com",
@@ -42,6 +335,7 @@ export const mockDataTeam = [
     access: "user",
   },
   {
+    date:"14/04/2024",
     id: 6,
     name: "Ever Melisandre",
     email: "evermelisandre@gmail.com",
@@ -50,6 +344,7 @@ export const mockDataTeam = [
     access: "manager",
   },
   {
+    date:"14/04/2024",
     id: 7,
     name: "Ferrara Clifford",
     email: "ferraraclifford@gmail.com",
@@ -58,6 +353,7 @@ export const mockDataTeam = [
     access: "user",
   },
   {
+    date:"14/04/2024",
     id: 8,
     name: "Rossini Frances",
     email: "rossinifrances@gmail.com",
@@ -66,6 +362,7 @@ export const mockDataTeam = [
     access: "user",
   },
   {
+    date:"14/04/2024",
     id: 9,
     name: "Harvey Roxie",
     email: "harveyroxie@gmail.com",

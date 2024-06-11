@@ -1,10 +1,10 @@
-import { Box, Button, TextField } from "@mui/material";
+import { Box, Button, TextField, InputLabel } from "@mui/material";
 import { Formik } from "formik";
 import * as yup from "yup";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Header from "../../components/Header";
 
-const Form = () => {
+const StoreForm = () => {
   const isNonMobile = useMediaQuery("(min-width:600px)");
 
   const handleFormSubmit = (values) => {
@@ -13,7 +13,7 @@ const Form = () => {
 
   return (
     <Box m="20px">
-      <Header title="CREATE USER" subtitle="Create a New User Profile" />
+      <Header title="CREATE STORE" subtitle="Create a New Store Profile" />
 
       <Formik
         onSubmit={handleFormSubmit}
@@ -27,6 +27,7 @@ const Form = () => {
           handleBlur,
           handleChange,
           handleSubmit,
+          setFieldValue,
         }) => (
           <form onSubmit={handleSubmit}>
             <Box
@@ -41,33 +42,33 @@ const Form = () => {
                 fullWidth
                 variant="filled"
                 type="text"
-                label="First Name"
+                label="Store Name"
                 onBlur={handleBlur}
                 onChange={handleChange}
-                value={values.firstName}
-                name="firstName"
-                error={!!touched.firstName && !!errors.firstName}
-                helperText={touched.firstName && errors.firstName}
+                value={values.storeName}
+                name="storeName"
+                error={!!touched.storeName && !!errors.storeName}
+                helperText={touched.storeName && errors.storeName}
                 sx={{ gridColumn: "span 2" }}
               />
               <TextField
                 fullWidth
                 variant="filled"
                 type="text"
-                label="Last Name"
+                label="Manager In Charge"
                 onBlur={handleBlur}
                 onChange={handleChange}
-                value={values.lastName}
-                name="lastName"
-                error={!!touched.lastName && !!errors.lastName}
-                helperText={touched.lastName && errors.lastName}
+                value={values.manager}
+                name="manager"
+                error={!!touched.manager && !!errors.manager}
+                helperText={touched.manager && errors.manager}
                 sx={{ gridColumn: "span 2" }}
               />
               <TextField
                 fullWidth
                 variant="filled"
                 type="text"
-                label="Email"
+                label="Email Address"
                 onBlur={handleBlur}
                 onChange={handleChange}
                 value={values.email}
@@ -80,45 +81,47 @@ const Form = () => {
                 fullWidth
                 variant="filled"
                 type="text"
-                label="Contact Number"
+                label="Telephone Number"
                 onBlur={handleBlur}
                 onChange={handleChange}
-                value={values.contact}
-                name="contact"
-                error={!!touched.contact && !!errors.contact}
-                helperText={touched.contact && errors.contact}
+                value={values.telephone}
+                name="telephone"
+                error={!!touched.telephone && !!errors.telephone}
+                helperText={touched.telephone && errors.telephone}
                 sx={{ gridColumn: "span 4" }}
               />
               <TextField
                 fullWidth
                 variant="filled"
                 type="text"
-                label="Address 1"
+                label="Address"
                 onBlur={handleBlur}
                 onChange={handleChange}
-                value={values.address1}
-                name="address1"
-                error={!!touched.address1 && !!errors.address1}
-                helperText={touched.address1 && errors.address1}
+                value={values.address}
+                name="address"
+                error={!!touched.address && !!errors.address}
+                helperText={touched.address && errors.address}
                 sx={{ gridColumn: "span 4" }}
               />
-              <TextField
-                fullWidth
-                variant="filled"
-                type="text"
-                label="Address 2"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                value={values.address2}
-                name="address2"
-                error={!!touched.address2 && !!errors.address2}
-                helperText={touched.address2 && errors.address2}
-                sx={{ gridColumn: "span 4" }}
-              />
+              <Box gridColumn="span 4">
+                <InputLabel shrink htmlFor="image">
+                  Store Image
+                </InputLabel>
+                <input
+                  id="image"
+                  name="image"
+                  type="file"
+                  accept="image/*"
+                  onChange={(event) => {
+                    setFieldValue("image", event.currentTarget.files[0]);
+                  }}
+                  style={{ display: 'block', marginTop: '16px' }}
+                />
+              </Box>
             </Box>
             <Box display="flex" justifyContent="end" mt="20px">
               <Button type="submit" color="secondary" variant="contained">
-                Create New User
+                Create New Store
               </Button>
             </Box>
           </form>
@@ -132,23 +135,24 @@ const phoneRegExp =
   /^((\+[1-9]{1,4}[ -]?)|(\([0-9]{2,3}\)[ -]?)|([0-9]{2,4})[ -]?)*?[0-9]{3,4}[ -]?[0-9]{3,4}$/;
 
 const checkoutSchema = yup.object().shape({
-  firstName: yup.string().required("required"),
-  lastName: yup.string().required("required"),
+  storeName: yup.string().required("required"),
+  manager: yup.string().required("required"),
   email: yup.string().email("invalid email").required("required"),
-  contact: yup
+  telephone: yup
     .string()
     .matches(phoneRegExp, "Phone number is not valid")
     .required("required"),
-  address1: yup.string().required("required"),
-  address2: yup.string().required("required"),
+  address: yup.string().required("required"),
+  image: yup.mixed().required("required"),
 });
+
 const initialValues = {
-  firstName: "",
-  lastName: "",
+  storeName: "",
+  manager: "",
   email: "",
-  contact: "",
-  address1: "",
-  address2: "",
+  telephone: "",
+  address: "",
+  image: null,
 };
 
-export default Form;
+export default StoreForm;

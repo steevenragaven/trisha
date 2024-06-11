@@ -3,61 +3,71 @@ import { Box, IconButton, Menu, MenuItem, Typography, useTheme } from "@mui/mate
 import { DataGrid } from "@mui/x-data-grid";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { tokens } from "../../theme";
-import { mockDataCategories } from "../../data/mockData";
+import { mockDataStores } from "../../data/mockData";
 import Header from "../../components/Header";
 
-const Categories = () => {
+const Stores = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const [anchorEl, setAnchorEl] = useState(null);
-  const [selectedCategoryId, setSelectedCategoryId] = useState(null);
+  const [selectedStoreId, setSelectedStoreId] = useState(null);
 
-  const handleMenuOpen = (event, categoryId) => {
+  const handleMenuOpen = (event, storeId) => {
     setAnchorEl(event.currentTarget);
-    setSelectedCategoryId(categoryId);
+    setSelectedStoreId(storeId);
   };
 
   const handleMenuClose = () => {
     setAnchorEl(null);
-    setSelectedCategoryId(null);
+    setSelectedStoreId(null);
   };
 
-  const handleEditCategory = () => {
-    console.log("Edit category with id:", selectedCategoryId);
+  const handleEditStore = () => {
+    console.log("Edit store with id:", selectedStoreId);
     handleMenuClose();
   };
 
-  const handleDeleteCategory = () => {
-    console.log("Delete category with id:", selectedCategoryId);
+  const handleDeleteStore = () => {
+    console.log("Delete store with id:", selectedStoreId);
     handleMenuClose();
   };
 
   const columns = [
     { 
-      field: "date_added", 
-      headerName: "Date Added", 
+      field: "date_created", 
+      headerName: "Date Created", 
       flex: 1, 
       cellClassName: "name-column--cell" 
     },
     { 
-      field: "category_id", 
-      headerName: "Category ID" 
+      field: "store_id", 
+      headerName: "Store ID" 
     },
     {
-      field: "category_name",
-      headerName: "Category Name",
+      field: "store_name",
+      headerName: "Store Name",
       flex: 1,
       cellClassName: "name-column--cell",
     },
     {
-      field: "item_image",
-      headerName: "Item Image",
+      field: "manager_in_charge",
+      headerName: "Manager In Charge",
       flex: 1,
-      renderCell: ({ row }) => (
-        <Box display="flex" justifyContent="center" width="100%">
-          <img src={`./${row.item_image}`} alt="category" style={{ width: 50, height: 50, objectFit: "cover" }} />
-        </Box>
-      ),
+    },
+    {
+      field: "telephone_number",
+      headerName: "Telephone Number",
+      flex: 1,
+    },
+    {
+      field: "address",
+      headerName: "Address",
+      flex: 1,
+    },
+    {
+      field: "email_address",
+      headerName: "Email Address",
+      flex: 1,
     },
     {
       field: "action",
@@ -70,11 +80,11 @@ const Categories = () => {
           </IconButton>
           <Menu
             anchorEl={anchorEl}
-            open={Boolean(anchorEl) && selectedCategoryId === row.id}
+            open={Boolean(anchorEl) && selectedStoreId === row.id}
             onClose={handleMenuClose}
           >
-            <MenuItem onClick={handleEditCategory}>Edit</MenuItem>
-            <MenuItem onClick={handleDeleteCategory}>Delete</MenuItem>
+            <MenuItem onClick={handleEditStore}>Edit</MenuItem>
+            <MenuItem onClick={handleDeleteStore}>Delete</MenuItem>
           </Menu>
         </Box>
       ),
@@ -83,7 +93,7 @@ const Categories = () => {
 
   return (
     <Box m="20px">
-      <Header title="Categories" />
+      <Header title="Stores" />
       <Box
         m="40px 0 0 0"
         height="75vh"
@@ -113,10 +123,10 @@ const Categories = () => {
           },
         }}
       >
-        <DataGrid checkboxSelection rows={mockDataCategories} columns={columns} />
+        <DataGrid checkboxSelection rows={mockDataStores} columns={columns} />
       </Box>
     </Box>
   );
 };
 
-export default Categories;
+export default Stores;

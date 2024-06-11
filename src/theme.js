@@ -117,6 +117,9 @@ export const tokens = (mode) => ({
           800: "#c3c6fd",
           900: "#e1e2fe",
         },
+        sidebarBackground: {
+          main: "#36B65A",
+        },
       }),
 });
 
@@ -159,6 +162,9 @@ export const themeSettings = (mode) => {
             },
             background: {
               default: "#fcfcfc",
+            },
+            sidebarBackground: {
+              main: colors.greenAccent[400],
             },
           }),
     },
