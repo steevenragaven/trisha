@@ -128,7 +128,7 @@ const Sidebar = () => {
             </Typography>
             <Item
               title="Products"
-              to="/team"
+              to="/products"
               icon={<RamenDiningOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
@@ -149,7 +149,7 @@ const Sidebar = () => {
             />
             <Item
               title="Categories"
-              to="/invoices"
+              to="/categories"
               icon={<EmojiFoodBeverageIcon />}
               selected={selected}
               setSelected={setSelected}
